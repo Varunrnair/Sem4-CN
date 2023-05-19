@@ -5,7 +5,7 @@ def byte_stuffing(data, flag):
         if i == flag[0]:
             stuffed_data += escape_character + bytes([i])
         elif i == escape_character[0]:
-            stuffed_data += escape_character + escape_character
+            stuffed_data += escape_character + bytes([i])
         else:
             stuffed_data += bytes([i])
     return stuffed_data

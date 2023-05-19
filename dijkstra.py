@@ -6,11 +6,11 @@ def dijkstra(graph, start):
     while unvisited:
         min_node = None
         min_distance = float('inf')
-        for node in unvisited:
-            if distances[node] < min_distance:
-                min_node = node
-                min_distance = distances[node]
-        if min_node is None:
+        for i in unvisited:
+            if distances[i] < min_distance:
+                min_node = i
+                min_distance = distances[i]
+        if min_node == None:
             break
 
         unvisited.remove(min_node)
