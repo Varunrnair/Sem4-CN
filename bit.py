@@ -29,7 +29,6 @@ def bit_destuffing(stuffed_data):
                 count = 0
             else:
                 destuffed_data += i
-            count += 1
     return destuffed_data
 
 data = (input("Enter the string : "))
