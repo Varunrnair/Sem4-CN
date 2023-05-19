@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
-
 #define MAX_NODES 100
 #define INF 1000000
 
@@ -29,13 +27,13 @@ int main()
     }
     pi[0] = 0;
 
-    for (i = 0; i < n - 1; i++) {
-        for (j = 0; j < n; j++) {
-            for (k = 0; k < n; k++) {
-                val = d[j] + c[j][k];
-                if (d[k] > val) {
-                    d[k] = val;
-                    pi[k] = j + 1;
+    for (k = 0; k < n - 1; k++) {
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < n; j++) {
+                val = d[i] + c[i][j];
+                if (d[j] > val) {
+                    d[j] = val;
+                    pi[j] = i + 1;
                 }
             }
         }
@@ -47,10 +45,10 @@ int main()
     }
 
     // Check for negative cycles
-    for (j = 0; j < n; j++) {
-        for (k = 0; k < n; k++) {
-            val = d[j] + c[j][k];
-            if (d[k] > val) {
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            val = d[i] + c[i][j];
+            if (d[j] > val) {
                 negative_cycle = true;
                 break;
             }
