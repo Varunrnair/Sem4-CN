@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 def dijkstra(graph, start):
     distances = {node: float('inf') for node in graph}
     distances[start] = 0
@@ -12,7 +10,6 @@ def dijkstra(graph, start):
             if distances[node] < min_distance:
                 min_node = node
                 min_distance = distances[node]
-
         if min_node is None:
             break
 
@@ -22,7 +19,6 @@ def dijkstra(graph, start):
             new_distance = distances[min_node] + weight
             if new_distance < distances[neighbor]:
                 distances[neighbor] = new_distance
-
     return distances
 
 
